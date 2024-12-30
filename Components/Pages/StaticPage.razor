@@ -1,0 +1,35 @@
+﻿@page "/staticpage"
+@rendermode InteractiveServer
+@using KadelDemo.Models
+@using MudBlazor
+
+<PageTitle>Static</PageTitle>
+
+<h1>KadelBricks</h1>
+
+<MudCard Elevation="0" Class="mb-4">
+    <MudCardContent>
+        <MudGrid Spacing="1">
+            <MudItem xs="12" sm="12" md="12">
+                <MudText>
+                    @if (product != null)
+                    {
+                        <h2>@product.Description</h2>
+                    }
+                </MudText>
+            </MudItem>
+            <MudItem xs="12" sm="12" md="12">
+                <MudImage Src="images/Property1.jpg" Width="300" Height="300" Class="object-contain align-center">
+                </MudImage>
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+</MudCard>
+
+
+
+@* <p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button> *@
+
+

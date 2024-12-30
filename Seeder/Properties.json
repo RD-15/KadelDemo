@@ -1,0 +1,25 @@
+{
+  "Properties": [
+    {
+      "Id": 1,
+      "Name": "Property1",
+      "Description": "A Bunglow",
+      "Price": "$1000",
+      "ProductImage": "property1.jpg"
+    },
+    {
+      "Id": 2,
+      "Name": "Property2",
+      "Description": "A Sea facing Bunglow",
+      "Price": "$5000",
+      "ProductImage": "property2.jpg"
+    },
+    {
+      "Id": 3,
+      "Name": "Property3",
+      "Description": "A Bunglow with Garage",
+      "Price": "$3000",
+      "ProductImage": "property3.jpg"
+    }
+  ]
+}

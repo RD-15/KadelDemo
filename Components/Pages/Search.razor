@@ -1,0 +1,64 @@
+﻿@page "/search"
+@rendermode InteractiveServer
+@using MudBlazor
+
+<PageTitle>Search</PageTitle>
+
+<h1>Search Property</h1>
+
+<h1>For testing search functionality - search by description of property</h1>
+<h2>Description - A Bunglow</h2>
+<h2>Description - A Sea facing Bunglow</h2>
+<h2>Description - A Bunglow with Garage</h2>
+    
+       
+<MudGrid>
+     <MudItem Class="d-flex">
+        <MudItem xs="12" sm="4" md="4">
+            <MudText Style="margin-top:4px">Search</MudText>
+        </MudItem>
+
+        <MudItem xs="12" sm="4" md="4" Style="padding-left:4px">
+            <MudTextField T="string" @bind-Value="searchStr" Variant="Variant.Outlined"></MudTextField>
+        </MudItem>
+
+        <MudItem xs="12" sm="4" md="4" Style="padding-left:4px">
+            <MudButton  ButtonType="ButtonType.Submit" Color="Color.Primary" Size="Size.Medium" OnClick="SearchProperty">Click Me</MudButton>
+            @* <button class="btn btn-primary" @onclick="SearchProperty">Click me</button> *@
+        </MudItem>
+    </MudItem>
+</MudGrid> 
+
+
+<MudGrid Spacing="1">
+    <MudItem Class="d-flex"> 
+    @if (filteredProperties == null)
+    {    
+        <p><em>Loading properties...</em></p>
+    }
+    else
+    {  
+    
+        foreach (var property in filteredProperties)
+        {
+            <MudItem xs="12" sm="4" md="4" Class="d-flex" Style="padding:8px">
+                <MudCard Style="padding:16px">
+                    <MudCardContent>
+                        <MudText>
+                            @property.Description
+                        </MudText>
+                        <MudImage Src="@($"images/{property.ProductImage}")" Width="300" Height="300" Class="object-contain align-center">
+                        </MudImage>
+                        <MudText>
+                            @property.Price
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }        
+    }
+
+    </MudItem>
+</MudGrid>
+
+
