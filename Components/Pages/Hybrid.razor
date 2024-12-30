@@ -12,15 +12,18 @@
                         <h2>@product.Description</h2>
                     }
                 </MudText>
+                <MudItem xs="12" sm="12" md="12">
+                    <h2>Below content is coming by mocking an API, using Postman mock server.</h2>
+                </MudItem>
             </MudItem>            
         </MudGrid>
     </MudCardContent>
 </MudCard>
 
-<h2>Below content is coming by mocking an API, using Postman mock server.</h2>
+@* <h2>Below content is coming by mocking an API, using Postman mock server.</h2> *@
 
 <MudGrid Spacing="1">
-    <MudItem Class="d-flex">
+    
     @if (properties != null)
     {
         foreach (var property in properties)
@@ -42,7 +45,7 @@
                                         
         }
     }     
-    </MudItem>
+    
 </MudGrid>
  
 

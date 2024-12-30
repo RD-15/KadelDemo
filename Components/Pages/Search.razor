@@ -6,32 +6,30 @@
 
 <h1>Search Property</h1>
 
-<h1>For testing search functionality - search by description of property</h1>
-<h2>Description - A Bunglow</h2>
-<h2>Description - A Sea facing Bunglow</h2>
-<h2>Description - A Bunglow with Garage</h2>
+<h2>For testing search functionality - search by description of property</h2>
+<h3>Description - A Bunglow</h3>
+<h3>Description - A Sea facing Bunglow</h3>
+<h3>Description - A Bunglow with Garage</h3>
     
        
 <MudGrid>
-     <MudItem Class="d-flex">
-        <MudItem xs="12" sm="4" md="4">
-            <MudText Style="margin-top:4px">Search</MudText>
+        <MudItem xs="12" sm="2" md="2">
+            <h3>Search Description</h3>
         </MudItem>
-
-        <MudItem xs="12" sm="4" md="4" Style="padding-left:4px">
+        <MudItem xs="12" sm="4" md="4">
             <MudTextField T="string" @bind-Value="searchStr" Variant="Variant.Outlined"></MudTextField>
         </MudItem>
 
-        <MudItem xs="12" sm="4" md="4" Style="padding-left:4px">
-            <MudButton  ButtonType="ButtonType.Submit" Color="Color.Primary" Size="Size.Medium" OnClick="SearchProperty">Click Me</MudButton>
+        <MudItem xs="12" sm="6" md="6">
+            <MudButton Variant="Variant.Filled"  ButtonType="ButtonType.Submit" Color="Color.Primary" 
+              OnClick="SearchProperty">Click Me</MudButton>
             @* <button class="btn btn-primary" @onclick="SearchProperty">Click me</button> *@
-        </MudItem>
-    </MudItem>
+        </MudItem>    
 </MudGrid> 
 
 
 <MudGrid Spacing="1">
-    <MudItem Class="d-flex"> 
+     
     @if (filteredProperties == null)
     {    
         <p><em>Loading properties...</em></p>
@@ -41,8 +39,8 @@
     
         foreach (var property in filteredProperties)
         {
-            <MudItem xs="12" sm="4" md="4" Class="d-flex" Style="padding:8px">
-                <MudCard Style="padding:16px">
+            <MudItem xs="12" sm="4" md="4">
+                <MudCard>
                     <MudCardContent>
                         <MudText>
                             @property.Description
@@ -58,7 +56,7 @@
         }        
     }
 
-    </MudItem>
+    
 </MudGrid>
 
 
