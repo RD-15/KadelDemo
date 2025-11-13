@@ -7,6 +7,8 @@ namespace KadelDemo.Models
         public int? Id { get; set; }
         public string? Description { get; set; }
         public string? PropertyImage { get; set; }
+
+        public int? PropertySize { get; set; }
         
     }
 }
