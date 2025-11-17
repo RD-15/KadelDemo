@@ -3,6 +3,7 @@ using Contentful.Core;
 using KadelDemo.Models.Common;
 using Microsoft.AspNetCore.Mvc;
 using KadelDemo.Models;
+using KadelDemo.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,11 +16,13 @@ namespace KadelDemo.Controllers
 
         private readonly IConfiguration _configuration;
         private readonly ApplicationSettings? _applicationSettings;
+        private readonly IKadelPropertyService _kadelPropertyService;
 
-        public ContentfulController(IConfiguration configuration)
+        public ContentfulController(IConfiguration configuration, IKadelPropertyService kadelPropertyService)
         {
             _configuration = configuration;
             _applicationSettings = _configuration.GetSection(nameof(ApplicationSettings)).Get<ApplicationSettings>();
+            _kadelPropertyService = kadelPropertyService;
         }
 
 
@@ -85,6 +88,18 @@ namespace KadelDemo.Controllers
                 return NotFound();
             }
 
+        }
+
+        /// <summary>
+        /// Create a new property.
+        /// </summary>
+        /// <param name="property">Property to create</param>
+        /// <returns></returns>
+        [HttpPost("createProperty")]
+        public async Task<ActionResult<PropertyItem>> CreateProperty([FromBody] PropertyItem property)
+        {
+            var createdProperty = await _kadelPropertyService.CreatePropertyAsync(property);
+            return Ok(createdProperty);
         }
        
     }
