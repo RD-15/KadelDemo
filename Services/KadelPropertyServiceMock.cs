@@ -21,6 +21,13 @@ namespace KadelDemo.Services
             var properties = await response.Content.ReadFromJsonAsync<IEnumerable<PropertyItem>>();
             return properties?.ToList()!;            
         }
+
+        public async Task<PropertyItem> CreatePropertyAsync(PropertyItem property)
+        {
+            var response = await _httpClient.PostAsJsonAsync("https://ab6bcd3c-2916-4675-a79d-5cdf69448852.mock.pstmn.io/createkadelproperty", property);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<PropertyItem>();
+        }
         
     }
 }
